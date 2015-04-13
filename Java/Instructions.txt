@@ -1,0 +1,18 @@
+NOTE: All programs require at least Java 7 installed.
+
+WellsRelationSolver takes input from either a file or on the command line.
+Compile: javac WellsRelationSolver.java
+Usage: java WellsRelationSolver [<filepath>]
+Example: java WellsRelationSolver Relation.txt
+If no file is given, the program will prompt for input for the universe size and for each relation. It accepts most forms of crazy input, and terminates input upon reading a period (.) from the user.
+
+WellsRelationTester depends on the jsch library included with my submission. It takes a username and password on the command line and attempts to log into Andrew to test WellsRelationSolver against your programs.
+Compile: javac WellsRelationTester.java -classpath ".;./jsch-0.1.51.jar"
+Usage: java -jar ./jsch-0.1.51.jar WellsRelationTester <username>[@<host> [<password>]]
+Example: java -jar ./jsch-0.1.51.jar WellsRelationTester Wellsm2011
+Example: java -jar ./jsch-0.1.51.jar WellsRelationTester Wellsm2011@andrew.cs.fit.edu my_password
+If no password is given, the program will prompt for a password. If no host is given, the program will assume andrew.cs.fit.edu as the host. Once connected, the program will attempt to run each of your programs 25 times starting with a relation of universe size 10 and scaling all the way to universe size 250.
+
+Solver.exe and Tester.exe are executable JAR files which can be run on Windows (or under Wine on Unix).
+Solver.exe will run WellsRelationSolver and expect command line input for the relation.
+Tester.exe has been set up with my TRACKS username and password so it will automatically connect and perform tests without any input.
