@@ -14,8 +14,7 @@ testGenerator :: (String, String, ([(Int, Int)] -> Bool)) -> Test
 testGenerator (fileName, testName, func) = TestCase (do input <- readFile fileName
                                                         assertEqual testName True (func (topairs input)))
 testList :: Test
-testList = TestList (map (\x -> TestLabel (second x) (testGenerator x)) [("sym.in", "Symmetric", issymmetric), ("trans.in", "Transitive", istransitive)])
-
+testList = TestList (map (\x -> TestLabel (second x) (testGenerator x)) [("../Input/s3.in", "Symmetric", issymmetric), ("../Input/r3.in", "Reflexive", isreflexive), ("../Input/t3.in", "Transitive", istransitive)])
 
 symmTest :: Test
 symmTest = TestCase (do input <- readFile "sym.in"
